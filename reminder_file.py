@@ -27,6 +27,16 @@ def get_odd_elements(*args):
     return odd_elements
 
 
+def get_even_numbers(*args):
+    even_number = []
+    for num in args:
+        if num % 2 == 0:
+            even_number.append(num)
+    return even_number
+
+
+print(get_even_numbers(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+
 print(get_odd_elements(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
 
@@ -47,3 +57,11 @@ for num in range(1, 16):
         print("divided by 5")
     else:
         print("divided by 3")
+
+a, b = 0, 1
+for i in range(1, 10):
+    print(a, b)
+    a, b = b, a + b
+
+my_list = [1, 3, 5, 7, 8, 9]
+my_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9)
