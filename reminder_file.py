@@ -1,4 +1,5 @@
 import os, glob
+from typing import re
 
 for i in range(1, 3):
     print(i)
@@ -64,4 +65,124 @@ for i in range(1, 10):
     a, b = b, a + b
 
 my_list = [1, 3, 5, 7, 8, 9]
+for i in my_list:
+    print(i)
+
 my_tuple = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+for i in my_tuple:
+    print(i)
+
+my_dict = {'key1': 'value', 'key2': 'value2', 'key3': 'value3'}
+for key, value in my_dict.items():
+    print(key, value)
+
+my_set = {'value1', 'value2', 'value3', 'value4', 'value1'}
+for i in my_set:
+    print(i)
+
+# value = "Hello World"
+# match value:
+#     case "Hello World":
+#         print("Hello World")
+#     case "Hello Moon" | "Hello Sun":
+#         print("Hello Moon")
+#     case _:
+#         print("Hello Sun")
+
+values = ["Hello World", "Hello Moon", "Hello Sun", "Hello Mars"]  # List of test values
+
+# for value in values:
+#     match value:
+#         case "Hello World":
+#             print("Hello World")
+#         case "Hello Moon" | "Hello Sun":
+#             print("Hello Moon")
+#         case _:
+#             print("Hello Sun")
+
+
+# loop
+
+
+print("LOOP---------------")
+
+
+def loop():
+    x = 0
+    while x < 5:
+        print(x)
+        x += 1
+    else:
+        print("x is no longer less than 5")
+
+    for i in range(5):
+        print(i)
+
+    my_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    for d in my_days:
+        print(d)
+        if d == 'Thursday':
+            break
+
+    my_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+                 'November', 'December']
+    for no, m in enumerate(my_months):
+        print(no + 1, m)
+
+
+def is_palindrome(teststr):
+    print("is_palindrome---------------")
+    list = []
+    for x in teststr:
+        if x == ' ':
+            break
+        list.append(x.lower())
+
+    return list[::] == list[::-1]
+
+
+def is_palindrome2(teststr):
+    char_list = []
+    for x in teststr:
+        if x == ' ' or x == '?' or x == '\'' or x == '!' or x == '.':   #isalnum
+            print("skipping" + x)
+            continue
+        char_list.append(x.lower())
+    result = char_list == char_list[::-1]
+    print(result)
+    return result
+
+
+def is_palindrome3(teststr):
+    print("is_palindrome3---------------")
+    # Clean up the string: Remove non-alphabetic characters and convert to lowercase
+    cleaned_str = re.sub(r'[^A-Za-z]', '', teststr).lower()
+    return cleaned_str == cleaned_str[::-1]
+
+def quiz():
+    thestr = "Ogres are often foolhardy oafs"
+    newstr = ""
+    for i, c in enumerate(thestr):
+        if c == "o":
+            continue
+        if i > 20:
+            break
+        newstr += c
+    print(newstr)
+
+def main():
+    # print(is_palindrome('Radar 3'))  # Expected output: True
+    # print(is_palindrome2('Radar tt'))  # Expected output: True
+    # print(is_palindrome3('Radar tt'))  # Expected output: True
+    # total = 0
+    # test_words = ["Hello World!", "Radar", "Mama?", "Madam, I'm Adam.",
+    #               "Race car!"]
+    # for word in test_words:
+    #     total += is_palindrome2(word)
+    #     print(f"{word} is a palindrome: {is_palindrome2(word)}")
+    # loop()
+    quiz()
+
+
+if __name__ == "__main__":
+    main()
